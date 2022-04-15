@@ -393,7 +393,7 @@ console.log(arr.includes(number)); // true
 + 이 방법은 값 뿐만 아니라 자료형까지 맞는지 확인 해준다.
 
 ### ✔ 3. 배열의 값을 찾는 방법
-#### 1) indexOf : 배열의 몇번째에 있는지 확인하는 메서드
+#### 1) indexOf
 ```javascript
 const arr = [1, 2, 3, 4];
 
@@ -401,9 +401,10 @@ let number = 3;
 
 console.log(arr.indexOf(number)); // 2
 ```
++ 배열안에 몇번째에 있는지 알려주는 메서드
 + 만약 찾는 값이 없다면 콘솔창에는 `-1` 이 뜨게 된다.
 
-#### 2) findIndex : 배열안에 객체가 있을 경우 확인하는 메서드
+#### 2) findIndex
 ```javascript
 const arr = [
   { color : "red" },
@@ -413,7 +414,6 @@ const arr = [
 ];
 
 console.log(arr.findIndex((elm) => elm.color === "green")); // 3
-// findIndex의 파라미터로는 콜백함수를 해줘야 한다.
 
 // 즉,
 console.log(arr.findIndex(function(elm){
@@ -421,7 +421,10 @@ console.log(arr.findIndex(function(elm){
   });
 ); // 3
 ```
-#### 3) find : 단순히 찾는 메서드
++ 배열안의 객체의 값을 찾아주는 메서드
++ findIndex의 파라미터로는 콜백함수를 해줘야 한다.
+
+#### 3) find
 ```javascript
 const arr = [
   { color : "red" },
@@ -436,3 +439,4 @@ const element = arr.find((elm) => {
 
 console.log(element); // {color : 'blue'}
 ```
++ 배열안의 객채의 프로퍼티를 비교해 값을 찾아준다.
