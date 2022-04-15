@@ -330,12 +330,109 @@ console.log(arr.length); // 5
 ```
 
 ## 배열 내장 함수
-#### 
-### ✔ 1. 배열 생성 방식
+#### 먼저 forEach 문을 알아보자
++ forEach()는 주어진 함수를 배열 요소 각각에 대해 실행하는 메서드이다.
+```javascript
+const arr = [1, 2, 3, 4];
 
+arr.forEach(function(elm){
+  console.log(elm);
+}); // 1, 2, 3, 4 각각 출력
 
+//위의 식은 아래와 같이 간략하게 표기할수 있다.
+arr.forEach((elm) => {
+  console.log(elm);
+});
+// 또는
+arr.forEach((elm) => console.log(elm));
+```
+### ✔ 1. 새로운 값을 배열에 넣기
+#### 1) push
+```javascript
+const arr = [1, 2, 3];
+const newArr = [];
 
+arr.forEach((elm) => {
+  newArr.push(elm * 2); // 위에서 선언한 비어있는 배열에 차곡차곡 넣는다
+});
 
+console.log(newArr); // [2, 4, 6, 8]
+```
+#### 2) map
+```javascript
+const arr = [1, 2, 3, 4]
 
+const newArr = arr.map((elm) => {  
+  return elm*2; // 새로운 배열을 선언 함과 동시에 map 으로 값을 넣는다
+});
 
+console.log(newArr); // [2, 4, 6, 8]
+```
 
+### ✔ 2. 배열에 값이 있는지 확인하는 방법
+#### 1) if문을 활용한 기본적인 방법
+```javascript
+const arr = [1, 2, 3, 4];
+
+let number = 3;
+
+arr.forEach((elm) => {
+  if(elm === number){
+    console.log(true);
+  }
+}); // true
+```
+#### 2) includes
+```javascript
+const arr = [1, 2, 3, 4];
+
+let number = 3;
+
+console.log(arr.includes(number)); // true
+```
++ 이 방법은 값 뿐만 아니라 자료형까지 맞는지 확인 해준다.
+
+### ✔ 3. 배열의 값을 찾는 방법
+#### 1) indexOf : 배열의 몇번째에 있는지 확인하는 메서드
+```javascript
+const arr = [1, 2, 3, 4];
+
+let number = 3;
+
+console.log(arr.indexOf(number)); // 2
+```
++ 만약 찾는 값이 없다면 콘솔창에는 `-1` 이 뜨게 된다.
+
+#### 2) findIndex : 배열안에 객체가 있을 경우 확인하는 메서드
+```javascript
+const arr = [
+  { color : "red" },
+  { color : "black" },
+  { color : "blue" },
+  { color : "green" }
+];
+
+console.log(arr.findIndex((elm) => elm.color === "green")); // 3
+// findIndex의 파라미터로는 콜백함수를 해줘야 한다.
+
+// 즉,
+console.log(arr.findIndex(function(elm){
+  return elm.color === "green"; 
+  });
+); // 3
+```
+#### 3) find : 단순히 찾는 메서드
+```javascript
+const arr = [
+  { color : "red" },
+  { color : "black" },
+  { color : "blue" },
+  { color : "green" }
+];
+
+const element = arr.find((elm) => {
+  return elm.color === "blue";
+});
+
+console.log(element); // {color : 'blue'}
+```
