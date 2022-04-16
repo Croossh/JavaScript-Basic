@@ -440,3 +440,32 @@ const element = arr.find((elm) => {
 console.log(element); // {color : 'blue'}
 ```
 + 배열안의 객채의 프로퍼티를 비교해 값을 찾아준다.
+
+#### 4) filter
+```javascript
+const arr = [
+  { color : "red" },
+  { color : "black" },
+  { color : "blue" },
+  { color : "green" }
+];
+
+console.log(arr.filter((elm) => elm.color === "blue")); // {color: "blue"}
+```
+
+### ✔ 4. 배열을 자르는 방법
+#### 1) slice
+```javascript
+const arr = [
+  { color : "red" },
+  { color : "black" },
+  { color : "blue" },
+  { color : "green" }
+];
+
+console.log(arr.slice(0, 2)); // { color : "red" }, { color : "black" }
+```
++ slice의 첫번째 파라미터로는 시작지점
++ slice의 두번째 파라미터로는 끝지점
++ 0 이상 ~ 2 미만 구간을 잘라내어 새로운 배열로 리턴한다.
+
