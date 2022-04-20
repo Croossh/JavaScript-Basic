@@ -1,16 +1,16 @@
-# JavaScript-Basic
+# JavaScript Basic
 ### 😍배운 내용을 기록하는 repository 입니다.😍
 
 ## Contents
-* [변수와 상수](#변수와-상수)
-* [형변환](#형변환)
-* [연산자](#연산자)
-* [조건문과 반복문](#조건문과-반복문)
-* [화살표 함수](#화살표-함수)
-* [객체](#객체)
-* [배열](#배열)
-* [배열 내장 함수](#배열-내장-함수)
-## 변수와 상수
+* [1. 변수와 상수](#1-변수와-상수)
+* [2. 형변환](#2-형변환)
+* [3. 연산자](#3-연산자)
+* [4. 조건문과 반복문](#4-조건문과-반복문)
+* [5. 화살표 함수](#5-화살표-함수)
+* [6. 객체](#6-객체)
+* [7. 배열](#7-배열)
+* [8. 배열 내장 함수](#8-배열-내장-함수)
+## 1. 변수와 상수
 ### ✔ let, const<br>
 ※ var 는 이제 쓰지 않아요 ^-^
 ```javascript
@@ -21,7 +21,7 @@ let a = 20; // a 에 새로운 20이 할당 됨
 const b = 40; // error!
 ```
 
-## 형변환
+## 2. 형변환
 ### ✔ 묵시적 형변환, 명시적 형변환
 ```javascript
 // 묵시적 형변환 예시
@@ -38,7 +38,7 @@ console.log(c + d); // 102
 console.log(c + parseInt(d)); // 12 >> 'parseInt'로 string에서 Int로 바꿈
 ```
 
-## 연산자
+## 3. 연산자
 ### ✔ 1. 대입연산자 : 변수에 값을 넣는 행동
 ```javascript
 let a = 1; // 1을 a 변수에 넣음! (아주 기본)
@@ -140,7 +140,7 @@ console.log(b ?? 10); // 10
 변수 `a`는 0으로 할당 되었기 때문에 Pass<br>
 변수 `b`는 할당된 값이 없으므로 undefined로 10을 출력
 
-## 조건문과 반복문
+## 4. 조건문과 반복문
 ### if, else, else if, switch, for
 
 ### ✔ 1. if 문
@@ -178,7 +178,7 @@ for(i = 0; i > 5; i ++){
 i가 0부터 시작, 1씩 증가하여 5미만이 될때 까지 콘솔에 찍힘<br>
 순서대로 0, 1, 2, 3, 4 까지 찍히게 됨
 
-## 화살표 함수
+## 5. 화살표 함수
 ### ✔ 함수 선언식과 화살표 함수
 ```javascript
 // 함수 선언식
@@ -204,7 +204,7 @@ let sum = () => "배고파!"
 console.log(sum()); // "배고파!"
 ```
 
-## 객체
+## 6. 객체
 ### ✔ 1. 객체 생성 방식
 + 여러가지 자료를 동시에 가질수 있는 비원시 데이터!
 ```javascript
@@ -298,7 +298,7 @@ person.age = null;
 console.log(`name : ${"name"} in person}`); // true
 ```
 
-## 배열
+## 7. 배열
 #### 배열에는 어떤 자료형이 들어가도 상관 없다!
 ### ✔ 1. 배열 생성 방식
 ```javascript
@@ -329,7 +329,7 @@ console.log(arr.length); // 5
 // ※주의: 원소의 마지막 번호는 0부터 시작하여 4로 끝나기에 총 갯수는 5개 이다!
 ```
 
-## 배열 내장 함수
+## 8. 배열 내장 함수
 #### 먼저 forEach 문을 알아보자
 + forEach()는 주어진 함수를 배열 요소 각각에 대해 실행하는 메서드이다.
 ```javascript
@@ -469,3 +469,86 @@ console.log(arr.slice(0, 2)); // { color : "red" }, { color : "black" }
 + slice의 두번째 파라미터로는 끝지점
 + 0 이상 ~ 2 미만 구간을 잘라내어 새로운 배열로 리턴한다.
 
+### ✔ 5. 배열을 연결 방법
+#### 1) concat
+```javascript
+let arr1 = [
+  { firstColor : "red" },
+  { secondColor : "black" },
+  { thirdColor : "blue" }
+];
+
+let arr2 = [
+  { fourthColor : "green" },
+  { fifthColor : "blue" }
+];
+
+console.log(arr1.concat(arr2)) // {firstColor : 'red'} 부터 {fifthColor: 'blue'}
+```
+※ 참고: 리엑트에서는 스프레드 연산자(...변수)를 사용하는 것이 더욱 효과적이라고 한다. 
++ 스프레드 연산자 활용 방법
+```javascript
+let arr1 = [
+  { firstColor : "red" },
+  { secondColor : "black" }
+];
+
+let arr2 = [
+  { fourthColor : "green" },
+  { fifthColor : "blue" }
+];
+
+const newColor = [...arr1, 'baseColor: pink', ...arr2]
+console.log(newColor); // arr1 배열과 arr2 배열 사이에 baseColor : pink 가 삽입되어 출력됨
+```
+
+### ✔ 6. 배열 정렬 방법
+#### 1) sort
++ 배열안의 각각 객체들을 내림차순으로 정렬시킨다
+```javascript
+let chars = ["나", "다", "가"];
+
+chars.sort();
+console.log(chars); // 가, 나, 다
+```
++ 원본 배열의 순서를 사전순으로 정렬시켜 새로운 배열로 만든다.
++ But! 숫자의 경우는 다르다
+```javascript
+let num = [0, 1, 2, 10, 30, 3, 20];
+
+num.sort();
+console.log(num) // 0, 1, 10, 2, 20 , 3, 30 이 출력된다
+
+// 숫자 정렬같은 경우에는 간단한 비교함수와 함께 사용된다
+const compare = (a, b) => {
+  if(a > b){
+    // 크다
+    return 1; // a 랑 b 랑 비교했을때 a 가 크면 a 를 뒤로 보냄
+  }
+
+  if(a < b){
+    // 작다
+    return -1; // a 랑 b 랑 비교했을때 a 가 작으면 a 를 앞으로 보냄
+  }
+
+   //같다
+   return 0; // ㅇㅋ 다음~
+};
+num.sort(compare); // compare 를 sort의 매개변수로 넣어버림
+console.log(num); // 0, 1, 2, 3, 10, 20, 30 으로 정상적으로 출력된다
+```
+
+### ✔ 7. 문자열 합치기
+#### 1) join
+```javascript
+const arr = ["안녕하세요?", "화장실은", "오른쪽입니다."]
+
+console.log(arr[0], arr[1], arr[2]) // 안녕하세요? 화장실은 오른쪽입니다.
+//배열안에 객체들을 하나하나 꺼내서 나열하기는 힘들다
+
+console.log(arr.join()); // 안녕하세요?, 화장실은, 오른쪽입니다.
+console.log(arr.join(" ")); // 안녕하세요? 화장실은 오른쪽입니다.
+// 이렇게 공백으로 구분자를 정해주면 자연스럽게 나열된다.
+```
+
+[🔼최상단으로 가기🔼](#javascript-basic)
