@@ -1,7 +1,7 @@
-# JavaScript Basic
-### 😍배운 내용을 기록하는 repository 입니다.😍
+# 🚀 JavaScript Basic 🚀
+### 배운 내용을 기록하는 repository 입니다.
 
-## Contents
+## 🙋‍♂️Contents
 * [1. 변수와 상수](#1-변수와-상수)
 * [2. 형변환](#2-형변환)
 * [3. 연산자](#3-연산자)
@@ -11,7 +11,7 @@
 * [7. 배열](#7-배열)
 * [8. 배열 내장 함수](#8-배열-내장-함수)
 ## 1. 변수와 상수
-### ✔ let, const<br>
+### ✔ let, const
 ※ var 는 이제 쓰지 않아요 ^-^
 ```javascript
 let a = 10; // 변할수 있는 값 (변수)
