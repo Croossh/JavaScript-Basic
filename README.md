@@ -350,7 +350,8 @@ arr = [1, 2, 3, 4, 5];
 // 배열의 index 순번은 0번부터 시작된다
 // 즉 숫자 3은 2번 원소이다.
 ```
-### ✔ 2. 배열 추가, 길이 확인 방법
++ 추가로, 배열은 const로 선언하여도 배열안의 원소들은 수정할 수 있다! (비원소타입이라 가능하다)
+### ✔ 2. 배열 추가, 삭제, 길이 확인 방법
 #### 1) push : 배열의 마지막에 해당 원소를 추가함
 ```javascript
 let arr = [1, 2, 3, 4];
@@ -358,7 +359,28 @@ let arr = [1, 2, 3, 4];
 arr.push(5); // 배열의 마지막에 추가!
 console.log(arr); // [1, 2, 3, 4, 5]
 ```
-#### 2) length : 총 갯수를 확인
+
+#### 2) pop : 배열의 마지막에 해당 원소를 삭제함
+```javascript
+let arr = [1, 2, 3, 4];
+
+arr.pop(); // 배열의 마지막 요소 삭제!
+console.log(arr); // [1, 2, 3]
+```
+
+#### 3) shift/unshift : 배열의 시작 원소를 삭제/추가함
+```javascript
+let arr = [1, 2, 3, 4];
+
+arr.shtif(); // 배열의 첫번째 요소 삭제!
+console.log(arr); // [2, 3, 4]
+
+arr.unshift(0); // 배열의 첫번째에 해당 요소 추가
+console.log(arr); // [0, 2, 3, 4]
+
+```
+
+#### 4) length : 총 갯수를 확인
 ```javascript
 let arr = [1, 2, 3, 4, 5];
 
@@ -384,7 +406,7 @@ arr.forEach((elm) => {
 arr.forEach((elm) => console.log(elm));
 ```
 ### ✔ 1. 새로운 값을 배열에 넣기
-#### 1) push
+#### 1) push 응용
 ```javascript
 const arr = [1, 2, 3];
 const newArr = [];
@@ -506,6 +528,15 @@ console.log(arr.slice(0, 2)); // { color : "red" }, { color : "black" }
 + slice의 두번째 파라미터로는 끝지점
 + 0 이상 ~ 2 미만 구간을 잘라내어 새로운 배열로 리턴한다.
 
+#### 2) splice
+```javascript
+let colors = [ "red", "blue", "green", "yellow", "black", "white" ]
+
+colors.splice(2) // [ "green", "yellow", "black", "white" ] 2번부터 끝까지 표시(slice와 동일)
+colors.slice(1,3) // [ "blue", "green", "yellow" ] 1번부터 3개까지 표시
+```
++ slice와 많이 비슷하나 약간의 차이가 있다! 조심!
+
 ### ✔ 5. 배열을 연결 방법
 #### 1) concat
 ```javascript
@@ -574,6 +605,14 @@ const compare = (a, b) => {
 num.sort(compare); // compare 를 sort의 매개변수로 넣어버림
 console.log(num); // 0, 1, 2, 3, 10, 20, 30 으로 정상적으로 출력된다
 ```
+
+#### 2) reverse
++ 배열의 순서를 뒤집어 엎어버린다! (feat. 파괴메서드)
+```javascript
+let num = [ "1", "2", "3", "4" ]
+
+num.reverse() // [ "4", "3", "2", "1" ]
+```  
 
 ### ✔ 7. 문자열 합치기
 #### 1) join
